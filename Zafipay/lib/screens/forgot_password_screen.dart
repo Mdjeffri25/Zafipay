@@ -5,7 +5,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +39,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             TextField(
-              controller: _emailController,
+              controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email Address',
@@ -53,7 +53,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
-                final enteredEmail = _emailController.text.trim();
+                final enteredEmail = emailController.text.trim();
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(

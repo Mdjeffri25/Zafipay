@@ -39,38 +39,43 @@ class _LoginScreenState extends State<LoginScreen> {
                         : 'Enter your username',
                   ),
                   const SizedBox(height: 16),
-                  // ...existing code...
-TextFormField(
-  decoration: const InputDecoration(labelText: 'Password'),
-  obscureText: true,
-  onSaved: (value) => _password = value ?? '',
-  validator: (value) => value != null && value.length >= 6
-      ? null
-      : 'Password too short',
-),
-const SizedBox(height: 8),
-Align(
-  alignment: Alignment.centerRight,
-  child: TextButton(
-    onPressed: () {
-  Navigator.pushNamed(context, '/forgot');
-},
-    child: const Text('Forgot Password?'),
-  ),
-),
-const SizedBox(height: 24),
-ElevatedButton(
-  onPressed: () {
-    if (_formKey.currentState?.validate() ?? false) {
-      _formKey.currentState?.save();
-      print('Username: $_username, Password: $_password');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Logging in...')),
-      );
-    }
-  },
-  child: const Text('Login'),
-),
+                  TextFormField(
+                    decoration: const InputDecoration(labelText: 'Password'),
+                    obscureText: true,
+                    onSaved: (value) => _password = value ?? '',
+                    validator: (value) => value != null && value.length >= 6
+                        ? null
+                        : 'Password too short',
+                  ),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/forgot');
+                      },
+                      child: const Text('Forgot Password?'),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        _formKey.currentState?.save();
+                        print(
+                          'Username: [38;5;2m$_username[0m, Password: [38;5;2m$_password[0m',
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Logging in...')),
+                        );
+                        // Navigate to PIN setup screen after login
+                        Future.delayed(const Duration(milliseconds: 500), () {
+                          Navigator.pushReplacementNamed(context, '/pinsetup');
+                        });
+                      }
+                    },
+                    child: const Text('Login'),
+                  ),
                 ],
               ),
             ),

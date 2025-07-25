@@ -32,7 +32,6 @@ class LaunchScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/signup');
                 },
-                child: const Text('Sign Up'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
@@ -41,6 +40,7 @@ class LaunchScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
+                child: const Text('Sign Up'),
               ),
             ),
             const SizedBox(height: 10),
@@ -50,7 +50,6 @@ class LaunchScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 },
-                child: const Text('Login'),
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(color: Colors.white),
                   foregroundColor: Colors.white,
@@ -59,6 +58,7 @@ class LaunchScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
+                child: const Text('Login'),
               ),
             ),
             const SizedBox(height: 30),
